@@ -1,0 +1,111 @@
+#background {
+  position:absolute;
+  left: 2vw;
+  top: 5vh;
+  width: 63vw;
+  height: 50vh;
+}
+
+#protagonist {
+  position:absolute;
+  left: 17vw;
+  top: 16vh;
+  width: 6vw;
+  height: 10vw;
+}
+
+#playerBodyguardOne {
+  position:absolute;
+  left: 12vw;
+  top: 4vh;
+  width: 6vw;
+  height: 10vw;
+}
+
+#playerBodyguardTwo {
+  position:absolute;
+  left: 12vw;
+  top: 26vh;
+  width: 6vw;
+  height: 10vw;
+}
+
+#npc {
+  position:absolute;
+  left: 42vw;
+  top: 16vh;
+  width: 6vw;
+  height: 10vw;
+}
+
+#playerTextBox {
+  position:absolute;
+  left: 2vw;
+  top: 57vh;
+  width: 30vw;
+  height: 38vh;
+  border-style: solid;
+  background-color: #B27E3D;
+
+}
+
+#npcTextBox {
+  position:absolute;
+  left: 34vw;
+  top: 57vh;
+  width: 30vw;
+  height: 38vh;
+  border-style: solid;
+  background-color: #B27E3D;
+}
+
+#optionsBox {
+  position:absolute;
+  left: 66vw;
+  top: 5vh;
+  width: 32vw;
+  height: 90vh;
+  border-style: solid;
+  background-color: #B27E3D;
+}
+
+.innerTextBox {
+  position:absolute;
+  margin: 8px;
+  width: 100%;
+  height: 100%;
+  border-style: solid;
+  background-color: #FFF1DF;
+  overflow-y: auto;
+}
+
+.speakerPortrait {
+  float:left;
+  width: 9.5vw;
+  height: 9.5vw;
+  margin: 2px;
+  border-style: solid;
+  margin-right: 5px;
+}
+
+.speakerPortrait img {
+  height:100%;
+  width:100%;
+}
+
+.speakerText {
+ margin: 5px;
+ margin-bottom: 30px;
+}
+
+.optionsArrow {
+  height: 3vw;
+  width: 3vw;
+}
+
+.optionRow {
+  margin: 2vw;
+  display:grid;
+  grid-template-columns: 1fr 5fr;
+  text-align: left;
+}
