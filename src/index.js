@@ -1,12 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
-import './styles/index.css';
-import App from './components/App';
+import './index.css';
+import App from './reactapp/App';
 import registerServiceWorker from './registerServiceWorker';
 
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import { reducer } from './redux/reducers.js'
+import { reducer } from './reactapp/reducers.js'
 
 const store = createStore(reducer, {})
 

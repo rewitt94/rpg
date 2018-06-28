@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { DialogueContainer } from './Dialogue.container';
-import '../styles/App.css';
+import { DialogueContainer } from './dialogue/Dialogue.container';
+import { MapContainer } from './map/Map.container';
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      chosenComponent: DialogueContainer,
+      chosenComponent: MapContainer,
     }
   }
 

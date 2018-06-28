@@ -1,9 +1,9 @@
 import React from 'react';
-import { playableCharacterDataURIs } from '../imageAssets/playableSprites.js'
-import { npcDataURIs } from '../imageAssets/npcSprites.js'
-import { dialogueAssetDataURIs } from '../imageAssets/dialogueAssets.js'
-import { playerOptions, npcResponses } from '../dialogueScripts/opening.js'
-import '../styles/Dialogue.css';
+import { playableCharacterDataURIs } from './imageAssets/playableSprites.js'
+import { npcDataURIs } from './imageAssets/npcSprites.js'
+import { dialogueAssetDataURIs } from './imageAssets/dialogueAssets.js'
+import { playerOptions, npcResponses } from './scriptedEvents/opening.js'
+import './styles/Dialogue.css';
 
 export const Dialogue = ({
     background,

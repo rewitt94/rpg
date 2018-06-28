@@ -2,12 +2,14 @@ import {
   selectOption,
   selectPlayer,
   animateNpc,
-  selectNpcResponse
-} from '../redux/actions.js'
+  selectNpcResponse,
+  addOption,
+  removeOption
+} from '../Dialogue.actions.js'
 
 export const npcResponses = {
   0:[
-      "Hello old bean. Welcome to the Astral Plane. I am the creator of this world.",
+      "Welcome, to life. My greatest creation.",
       "Please realise that you may need to scroll down on the dialogue boxes as I have a terrible habit of talking too much. Sqawk Sqawk!",
       "Your story is that of a ruler who leads a band of refugees into the new world. The balad of a beloved ruler or the tale of terrible tyrant. You decide.",
       "Click on the options box & use Up, Down and Enter to choose; Who do you wish to be? Sqawk sqawk sqawk!"
@@ -26,21 +28,22 @@ export const npcResponses = {
     ],
   3:[
       "As you wish.",
-      "Your kingdom only recently had been greater than any above the surface. A underground volcano shattered your stone streets and chased your people to the surface.",
+      "Your kingdom only recently had been greater than any above the surface. A underground volcano shattered your stone streets and chased your people to the lands above.",
       "You lead a your hungry horde from beneath the earth. Can you settle your people amongst these human savages?",
       "Now it is time to bury the past and secure a future for your people in the new world."
     ],
-    4:[
-      "You horrible, little toad!!"
-    ]
+  4:[
+    "The risk of the wrong decision is preferable to indecision, my friend."
+    ],
 }
 
 export const playerOptions = {
-  0: 'Glug. Glug. Glug.',
-  1: 'I shall be the Nomad Chief.',
-  2: 'I shall be the Exiled Princess.',
-  3: 'I shall be the Goblin King.',
-  4: 'What the #$@! is this? I have no time for your games you arrogant fool!'
+  0: "Glug. Glug. Glug.",
+  1: "I shall be the Nomad Chief.",
+  2: "I shall be the Exiled Princess.",
+  3: "I shall be the Goblin King.",
+  4: "Actually, I changed my mind.",
+  5: "I'm ready. Let's do this."
 }
 
 export const dialogueActions = {
@@ -48,34 +51,42 @@ export const dialogueActions = {
   1: (dispatch,optionId) => {
     dispatch(selectOption(optionId))
     dispatch(selectNpcResponse(1))
-    setTimeout(() => dispatch(animateNpc('creatorA1')), 250)
-    setTimeout(() => dispatch(animateNpc('creatorA2')), 500)
-    setTimeout(() => dispatch(selectPlayer('nomadChief')), 500)
-    setTimeout(() => dispatch(animateNpc('creator')), 1000)
+    characterSelect(dispatch, 'nomadChief')
   },
   2: (dispatch,optionId) => {
     dispatch(selectOption(optionId))
     dispatch(selectNpcResponse(2))
-    setTimeout(() => dispatch(animateNpc('creatorA1')), 250)
-    setTimeout(() => dispatch(animateNpc('creatorA2')), 500)
-    setTimeout(() => dispatch(selectPlayer('exiledPrincess')), 500)
-    setTimeout(() => dispatch(animateNpc('creator')), 1000)
+    characterSelect(dispatch, 'exiledPrincess')
 
   },
   3: (dispatch,optionId) => {
     dispatch(selectOption(optionId))
     dispatch(selectNpcResponse(3))
-    setTimeout(() => dispatch(animateNpc('creatorA1')), 250)
-    setTimeout(() => dispatch(animateNpc('creatorA2')), 500)
-    setTimeout(() => dispatch(selectPlayer('goblinKing')), 500)
-    setTimeout(() => dispatch(animateNpc('creator')), 1000)
+    characterSelect(dispatch, 'goblinKing')
   },
   4: (dispatch,optionId) => {
     dispatch(selectOption(optionId))
     dispatch(selectNpcResponse(4))
+    dispatch(addOption(1))
+    dispatch(addOption(2))
+    dispatch(addOption(3))
+    dispatch(removeOption(4))
+    dispatch(removeOption(5))
     setTimeout(() => dispatch(animateNpc('creatorA1')), 250)
     setTimeout(() => dispatch(animateNpc('creatorA2')), 500)
     setTimeout(() => dispatch(selectPlayer('slime')), 500)
     setTimeout(() => dispatch(animateNpc('creator')), 1000)
   }
+}
+
+function characterSelect(dispatch, character) {
+  dispatch(removeOption(1))
+  dispatch(removeOption(2))
+  dispatch(removeOption(3))
+  dispatch(addOption(4))
+  dispatch(addOption(5))
+  setTimeout(() => dispatch(animateNpc('creatorA1')), 250)
+  setTimeout(() => dispatch(animateNpc('creatorA2')), 500)
+  setTimeout(() => dispatch(selectPlayer(character)), 500)
+  setTimeout(() => dispatch(animateNpc('creator')), 1000)
 }

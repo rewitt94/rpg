@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { changeOption, selectOption } from '../redux/actions'
+import { changeOption, selectOption } from './Dialogue.actions'
 import { Dialogue } from './Dialogue';
-import { dialogueActions } from '../dialogueScripts/opening.js'
+import { dialogueActions } from './scriptedEvents/opening.js'
 
 const mapStateToProps = state => {
   return {

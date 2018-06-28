@@ -1,0 +1,12 @@
+.mapTile {
+  width: 10vh;
+  height: 10vh;
+}
+
+#mapDiv {
+  position: absolute;
+  width: 400vh;
+  line-height: 0px;
+  border-style: solid;
+  border-width: thick;
+}

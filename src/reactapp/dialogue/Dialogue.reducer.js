@@ -1,19 +1,14 @@
-import { combineReducers } from 'redux'
-
-import {
-  npcResponses,
-  playerOptions
-} from '../dialogueScripts/opening'
-
 import {
   CHANGE_OPTION,
   SELECT_OPTION,
+  ADD_OPTION,
+  REMOVE_OPTION,
   SELECT_PLAYER,
   SELECT_NPC_RESPONSE,
   ANIMATE_NPC
-} from './actions'
+} from './Dialogue.actions'
 
-function dialogue(
+export function dialogue(
   dialogue = {
     background: 'astral',
     character: 'slime',
@@ -22,7 +17,7 @@ function dialogue(
     npcTag: 'creator',
     playerSpeech: 0,
     npcSpeech: 0,
-    availableOptions: [1,2,3,4],
+    availableOptions: [1,2,3],
     selected: 0
   },
   action) {
@@ -47,7 +42,26 @@ function dialogue(
 
     case SELECT_OPTION:
 
-      return Object.assign({}, dialogue, { playerSpeech: action.optionId })
+      return Object.assign({}, dialogue, { playerSpeech: action.optionId, selected: 0 })
+
+    case ADD_OPTION:
+
+      let newAvailableOptions = dialogue.availableOptions.slice();
+      newAvailableOptions.push(action.optionId);
+      newAvailableOptions.sort();
+
+      return Object.assign({}, dialogue, { availableOptions: newAvailableOptions })
+
+    case REMOVE_OPTION:
+
+      let splicedAvailableOptions = dialogue.availableOptions.slice();
+      let index = splicedAvailableOptions.indexOf(action.optionId);
+      if (index != -1) {
+        splicedAvailableOptions.splice(index, 1);
+      }
+
+      return Object.assign({}, dialogue, { availableOptions: splicedAvailableOptions })
+
 
     case SELECT_PLAYER:
 
@@ -67,7 +81,3 @@ function dialogue(
   }
 
 }
-
-export const reducer = combineReducers({
-  dialogue: dialogue
-})
